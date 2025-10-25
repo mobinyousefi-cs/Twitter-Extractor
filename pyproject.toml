@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twitter-extractor"
+version = "0.1.0"
+authors = [{ name = "Mobin Yousefi", email = "" }]
+description = "Extract data from Twitter/X via Tweepy v2 — CLI + Tkinter GUI"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "tweepy>=4.14.0",
+    "pandas>=2.1",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+twitter-extractor = "twitter_extractor.cli:main"
+twitter-extractor-gui = "twitter_extractor.gui.app:run"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E203"]
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
